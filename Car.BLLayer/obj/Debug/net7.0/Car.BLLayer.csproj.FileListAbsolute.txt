@@ -1,0 +1,15 @@
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\bin\Debug\net7.0\Car.BLLayer.deps.json
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\bin\Debug\net7.0\Car.BLLayer.dll
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\bin\Debug\net7.0\Car.BLLayer.pdb
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\obj\Debug\net7.0\Car.BLLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\obj\Debug\net7.0\Car.BLLayer.AssemblyInfoInputs.cache
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\obj\Debug\net7.0\Car.BLLayer.AssemblyInfo.cs
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\obj\Debug\net7.0\Car.BLLayer.csproj.CoreCompileInputs.cache
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\obj\Debug\net7.0\Car.BLLayer.dll
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\obj\Debug\net7.0\refint\Car.BLLayer.dll
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\obj\Debug\net7.0\Car.BLLayer.pdb
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\obj\Debug\net7.0\ref\Car.BLLayer.dll
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\bin\Debug\net7.0\Car.DLL.dll
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\bin\Debug\net7.0\Car.DLL.pdb
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\obj\Debug\net7.0\Car.BLLayer.csproj.AssemblyReference.cache
+C:\Users\Amara\source\repos\CarDealer\Car.BLLayer\obj\Debug\net7.0\Car.BLLayer.csproj.CopyComplete

@@ -1,0 +1,14 @@
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\bin\Debug\net7.0\Car.DLL.deps.json
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\bin\Debug\net7.0\Car.DLL.runtimeconfig.json
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\bin\Debug\net7.0\Car.DLL.dll
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\bin\Debug\net7.0\Car.DLL.pdb
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\obj\Debug\net7.0\Car.DLL.csproj.AssemblyReference.cache
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\obj\Debug\net7.0\Car.DLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\obj\Debug\net7.0\Car.DLL.AssemblyInfoInputs.cache
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\obj\Debug\net7.0\Car.DLL.AssemblyInfo.cs
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\obj\Debug\net7.0\Car.DLL.csproj.CoreCompileInputs.cache
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\obj\Debug\net7.0\Car.DLL.dll
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\obj\Debug\net7.0\refint\Car.DLL.dll
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\obj\Debug\net7.0\Car.DLL.pdb
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\obj\Debug\net7.0\Car.DLL.genruntimeconfig.cache
+C:\Users\Amara\source\repos\CarDealer\Car.DLL\obj\Debug\net7.0\ref\Car.DLL.dll

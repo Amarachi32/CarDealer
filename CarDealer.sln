@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car", "Car\Car.csproj", "{93E3EB24-13DD-47CD-9115-71BDDBFCC159}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car.DLL", "Car.DLL\Car.DLL.csproj", "{6F7B4DD6-A37D-4508-BE48-0DF45FCF8DCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Car.BLLayer", "Car.BLLayer\Car.BLLayer.csproj", "{147649BF-638C-4C0C-A864-E09FCB289DF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93E3EB24-13DD-47CD-9115-71BDDBFCC159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93E3EB24-13DD-47CD-9115-71BDDBFCC159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93E3EB24-13DD-47CD-9115-71BDDBFCC159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93E3EB24-13DD-47CD-9115-71BDDBFCC159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F7B4DD6-A37D-4508-BE48-0DF45FCF8DCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F7B4DD6-A37D-4508-BE48-0DF45FCF8DCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F7B4DD6-A37D-4508-BE48-0DF45FCF8DCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F7B4DD6-A37D-4508-BE48-0DF45FCF8DCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{147649BF-638C-4C0C-A864-E09FCB289DF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{147649BF-638C-4C0C-A864-E09FCB289DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{147649BF-638C-4C0C-A864-E09FCB289DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{147649BF-638C-4C0C-A864-E09FCB289DF0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E37A4CC2-3024-41FF-8314-52638BB2ACE8}
+	EndGlobalSection
+EndGlobal

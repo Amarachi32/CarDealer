@@ -66,6 +66,12 @@ jobs:
       uses: actions/checkout@v3
       with:
         fetch-depth: 0
+        
+    - name: Debug information
+      run: |
+        echo "GitHub Workspace: $GITHUB_WORKSPACE"
+        echo "Wap Project Directory: $env:Wap_Project_Directory"
+        echo "Certificate Path: $certificatePath"
 
     # Install the .NET Core workload
     - name: Install .NET Core

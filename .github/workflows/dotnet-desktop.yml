@@ -58,8 +58,8 @@ jobs:
     env:
       Solution_Name: CarDealer.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: MyWpfApp.Tests\CarDealer.Tests.csproj                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Wap_Project_Directory: CarDealer.Package    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-      Wap_Project_Path: CarDealer.App.Package\CarDealer.Package.wapproj                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
+     # Wap_Project_Directory: CarDealer.Package    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+     # Wap_Project_Path: CarDealer.App.Package\CarDealer.Package.wapproj                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
     - name: Checkout
@@ -97,12 +97,9 @@ jobs:
     - name: Decode the pfx and create directories
       run: |
         $pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
-           $directoryPath = Join-Path -Path $env:GITHUB_WORKSPACE -ChildPath $env:Wap_Project_Directory
-         if (-not (Test-Path -Path $directoryPath -PathType Container)) {
-          New-Item -Path $directoryPath -ItemType Directory -Force
-          }
-        $certificatePath = Join-Path -Path $directoryPath -ChildPath 'GitHubActionsWorkflow.pfx'
+        $certificatePath = Join-Path -Path $env:GITHUB_WORKSPACE -ChildPath $env:Wap_Project_Directory/GitHubActionsWorkflow.pfx
         [IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
+    #$certificatePath = Join-Path -Path $directoryPath -ChildPath 'GitHubActionsWorkflow.pfx'
     # $certificatePath = Join-Path -Path $env:GITHUB_WORKSPACE -ChildPath $env:Wap_Project_Directory/GitHubActionsWorkflow.pfx
     #$certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath GitHubActionsWorkflow.pfx
    #$certificatePath = Join-Path -Path "${{ github.workspace }}" -ChildPath ".github/workflows/GitHubActionsWorkflow.pfx"

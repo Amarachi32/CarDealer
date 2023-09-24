@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "OUSMvpIi1/BNwCDuVx5Fc0fKryoJPtbJRId8W59ePDiKF0462uN4iL4MoerQ+VqWSstPS0CHSmq0iueuZ/PRIQ==",
+  "dgSpecHash": "U841GKn0n25cr1lvbL2uQ1HQXwivqNDlFMj9CEfJ8bUYhuIbDZ4Ls58N0S3TJVYD8euTXWDXNGM4jHV8LugIQg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Amara\\source\\repos\\CarDealer\\Car.BLLayer\\Car.BLLayer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Amara\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Amara\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\Amara\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Amara\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.0.1\\microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.0\\microsoft.entityframeworkcore.7.0.0.nupkg.sha512",

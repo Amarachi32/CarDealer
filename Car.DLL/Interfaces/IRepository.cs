@@ -35,7 +35,7 @@ namespace Car.DLL.Interfaces
         Task DeleteAsync(Expression<Func<T, bool>> predicate);
 
         Task DeleteAsync(T obj);
-
+        Task<bool> DeleteAsync(object id);
         bool DeleteById(object id);
 
         Task DeleteByIdAsync(object id);
@@ -68,6 +68,9 @@ namespace Car.DLL.Interfaces
 
         Task<T> GetByIdAsync(object id);
 
+        Task<T> GetByIdAsyncl(
+            Expression<Func<T, bool>> predicate,
+            Func<IQueryable<T>, IIncludableQueryable<T, object>> include = null);
         Task<T> GetByNameAsync(object name);
 
         Task<bool> AnyAsync(Expression<Func<T, bool>> predicate = null);

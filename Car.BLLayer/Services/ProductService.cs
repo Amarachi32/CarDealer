@@ -3,6 +3,7 @@ using Car.BLLayer.DTO.RequestDto;
 using Car.BLLayer.Interfaces;
 using Car.DLL.Entities;
 using Car.DLL.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Car.BLLayer.Services
 {
     public class ProductService :IProductServices
     {
-        private readonly IRepository<Product> _providerRepository;
+        private readonly IRepository<Product> _productRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
@@ -21,27 +22,69 @@ namespace Car.BLLayer.Services
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _providerRepository = _unitOfWork.GetRepository<Product>();
+            _productRepository = _unitOfWork.GetRepository<Product>();
         }
 
-        public Task<ProductDto> CreateUpdateProduct(ProductDto productDto)
+        public async Task<ProductDto> CreateUpdateProduct(ProductDto productDto)
         {
-            throw new NotImplementedException();
+            Product product = _mapper.Map<ProductDto, Product>(productDto);
+            if (product.Id.Any())
+            {
+                await _productRepository.UpdateAsync(product);
+            }
+            else
+            {
+                await _productRepository.AddAsync(product);
+            }
+            await _unitOfWork.SaveChangesAsync();
+            return _mapper.Map<Product, ProductDto>(product);
         }
 
-        public Task<bool> DeleteProduct(int productId)
+        public async Task<bool> DeleteProduct(string productId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Product product = await _productRepository.GetByIdAsync(productId);
+                if (product == null)
+                {
+                    return false;
+                }
+                await _productRepository.DeleteAsync(product);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
-        public Task<ProductDto> GetProductById(int productId)
+        public async Task<ProductDto> GetProductById(string productId)
         {
-            throw new NotImplementedException();
+            var product = await _productRepository.GetSingleByAsync(
+             p => p.Id == productId,
+             include: q => q.Include(p => p.ProductBrand).Include(p => p.ProductType));
+
+            return _mapper.Map<ProductDto>(product);
         }
 
-        public Task<IEnumerable<ProductDto>> GetProducts()
+        public async Task<IEnumerable<ProductDto>> GetProducts()
         {
-            throw new NotImplementedException();
+            IEnumerable<Product> productList = await _productRepository
+                .GetAllAsync(include: q => q.Include(p => p.ProductBrand).Include(p => p.ProductType));
+            return _mapper.Map<List<ProductDto>>(productList);
         }
+
+/*        public async Task<IEnumerable<ProductBrand>> GetProductBrandsAsync()
+        {
+            IEnumerable<ProductBrand> productBrand = await _productRepository.GetAllAsync();
+            return _mapper.Map<List<ProductBrand>>(productBrand);
+        }
+
+        public Task<IEnumerable<ProductType>> GetProductTypesAsync()
+        {
+            IEnumerable<ProductType> productType = await _productRepository.GetAllAsync();
+            return _mapper.Map<List<ProductType>>(productType);
+        }*/
     }
 }

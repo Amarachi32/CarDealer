@@ -20,7 +20,7 @@ namespace Car.DLL.Interfaces
 
         long Count(Expression<Func<T, bool>> predicate = null);
 
-        Task<long> CountAsync(Expression<Func<T, bool>> predicate = null);
+        Task<int> CountAsync(Expression<Func<T, bool>> predicate = null);
 
         Task<decimal> SumAsync(Expression<Func<T, decimal>> predicate);
 

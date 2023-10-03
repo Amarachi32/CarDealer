@@ -88,13 +88,13 @@ namespace Car.DLL.Repositories
             }
         }
 
-        public virtual async Task<long> CountAsync(Expression<Func<T, bool>> predicate = null)
+        public virtual async Task<int> CountAsync(Expression<Func<T, bool>> predicate = null)
         {
             try
             {
                 if (predicate == null)
-                    return await _dbSet.LongCountAsync();
-                return await _dbSet.LongCountAsync(predicate);
+                    return await _dbSet.CountAsync();
+                return await _dbSet.CountAsync(predicate);
             }
             catch (Exception ex)
             {
@@ -308,12 +308,16 @@ namespace Car.DLL.Repositories
         {
             try
             {
-                IQueryable<T> query = ConstructQuery(predicate, orderBy, skip, take, include);
 
+                IQueryable<T> query = ConstructQuery(predicate, orderBy, skip, take, include);
+                if (skip.HasValue && take.HasValue)
+                {
+                    query = query.Skip((skip.Value - 1) * take.Value).Take(take.Value);
+                }
                 return await query.ToListAsync();
             }
             catch (Exception ex)
-            {
+            {  
                 throw new Exception(ex.Message);
             }
         }

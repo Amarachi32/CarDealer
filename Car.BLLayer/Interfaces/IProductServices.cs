@@ -1,5 +1,6 @@
 ﻿using Car.BLLayer.DTO.RequestDtos;
 using Car.DLL.Entities;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,9 @@ namespace Car.BLLayer.Interfaces
 {
     public interface IProductServices
     {
-        Task<IEnumerable<ProductDto>> GetProducts();
+        Task<Pagination<ProductDto>> GetProducts(ProductParams param);
         Task<ProductDto> GetProductById(string productId);
+        Task<ProductDto> CreateUpdateProduct(Product product);
         Task<ProductDto> CreateUpdateProduct(ProductDto productDto);
         Task<bool> DeleteProduct(string productId);
 /*        Task<IEnumerable<ProductBrand>> GetProductBrandsAsync();

@@ -9,7 +9,12 @@ C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\AutoMapper.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Azure.Core.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Azure.Identity.dll
+C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\CloudinaryDotNet.dll
+C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\FluentValidation.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Humanizer.dll
+C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
@@ -32,8 +37,13 @@ C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Microsoft.SqlServer.S
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\NLog.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Pipelines.Sockets.Unofficial.dll
+C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Scrutor.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\StackExchange.Redis.dll
+C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll

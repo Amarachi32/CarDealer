@@ -1,17 +1,13 @@
 ﻿using Car.DLL.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Car.DLL.Models
 {
-    public class CarDbContext : DbContext
+    public class CarDbContext : IdentityDbContext<AppUser>
     {
-        public CarDbContext(DbContextOptions options) : base(options)
+        public CarDbContext(DbContextOptions<CarDbContext> options) : base(options)
         {
 
         }
@@ -20,7 +16,9 @@ namespace Car.DLL.Models
         public DbSet<ProductBrand> ProductBrands { get; set; }
         public DbSet<ProductType> ProductTypes { get; set; }
         public DbSet<Order> Orders { get; set; }
-        //public DbSet<OrderItem> OrderItems { get; set; }
+        
+        public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ShoppingCart> Cart { get; set; }
         public DbSet<DeliveryMethod> DeliveryMethods { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

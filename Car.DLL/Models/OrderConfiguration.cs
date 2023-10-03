@@ -2,11 +2,7 @@
 using Car.DLL.Enum;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Car.BLLayer.Extension
 {   
@@ -22,6 +18,8 @@ namespace Car.BLLayer.Extension
             );
           //  builder.Navigation(a => a.ShipToAddress).IsRequired();
             builder.HasMany(o => o.OrderItems).WithOne().OnDelete(DeleteBehavior.Cascade);
+            builder.Property(o => o.SubTotal)
+            .HasColumnType("decimal(18, 2)");
         }
     }
 }

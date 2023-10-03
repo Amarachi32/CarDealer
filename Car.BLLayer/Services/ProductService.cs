@@ -4,15 +4,10 @@ using Car.BLLayer.Interfaces;
 using Car.DLL.Entities;
 using Car.DLL.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Car.BLLayer.Services
 {
-    public class ProductService :IProductServices
+    public class ProductService : IProductServices
     {
         private readonly IRepository<Product> _productRepository;
         private readonly IUnitOfWork _unitOfWork;
@@ -25,11 +20,14 @@ namespace Car.BLLayer.Services
             _productRepository = _unitOfWork.GetRepository<Product>();
         }
 
-        public async Task<ProductDto> CreateUpdateProduct(ProductDto productDto)
+        public async Task<ProductDto> CreateUpdateProduct(Product product)
         {
-            Product product = _mapper.Map<ProductDto, Product>(productDto);
-            if (product.Id.Any())
+            //Product product = _mapper.Map<ProductDto, Product>(productDto);
+            var existingProduct = await _productRepository.GetByIdAsync(product.Id);
+
+            if (existingProduct != null)
             {
+
                 await _productRepository.UpdateAsync(product);
             }
             else
@@ -38,6 +36,11 @@ namespace Car.BLLayer.Services
             }
             await _unitOfWork.SaveChangesAsync();
             return _mapper.Map<Product, ProductDto>(product);
+        }
+
+        public Task<ProductDto> CreateUpdateProduct(ProductDto productDto)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<bool> DeleteProduct(string productId)
@@ -68,23 +71,56 @@ namespace Car.BLLayer.Services
             return _mapper.Map<ProductDto>(product);
         }
 
-        public async Task<IEnumerable<ProductDto>> GetProducts()
+        //public async Task<IEnumerable<ProductDto>> GetProducts([FromQuery] int? skip, [FromQuery] int? take, [FromQuery] int? brandId, [FromQuery] int? typeId, string orderByCriteria = null)
+        public async Task<Pagination<ProductDto>> GetProducts(ProductParams param)
         {
+            var totalCount = await _productRepository.CountAsync(predicate: x =>
+            (string.IsNullOrEmpty(param.Search) || x.Name.ToLower().Contains(param.Search.ToLower())) &&
+            (!param.BrandId.HasValue || x.ProductBrandId == param.BrandId) &&
+            (!param.TypeId.HasValue || x.ProductTypeId == param.TypeId));
+
             IEnumerable<Product> productList = await _productRepository
-                .GetAllAsync(include: q => q.Include(p => p.ProductBrand).Include(p => p.ProductType));
-            return _mapper.Map<List<ProductDto>>(productList);
+                .GetByAsync(predicate: x =>
+                (string.IsNullOrEmpty(param.Search) || x.Name.ToLower().Contains(param.Search.ToLower())) &&
+                (!param.BrandId.HasValue || x.ProductBrandId == param.BrandId) &&
+                (!param.TypeId.HasValue || x.ProductTypeId == param.TypeId),
+            orderBy: GetOrderByExpression(param.sort),
+            //skip: param.PageIndex,
+            skip: (param.PageIndex - 1) * param.PageSize,
+            take: param.PageSize,
+            include: q => q.Include(p => p.ProductBrand).Include(p => p.ProductType));
+            var productDtos = _mapper.Map<List<ProductDto>>(productList);
+
+            return new Pagination<ProductDto>(param.PageIndex, param.PageSize, totalCount, productDtos);
+
         }
 
-/*        public async Task<IEnumerable<ProductBrand>> GetProductBrandsAsync()
+        private Func<IQueryable<Product>, IOrderedQueryable<Product>> GetOrderByExpression(string orderByCriteria)
         {
-            IEnumerable<ProductBrand> productBrand = await _productRepository.GetAllAsync();
-            return _mapper.Map<List<ProductBrand>>(productBrand);
-        }
+            Func<IQueryable<Product>, IOrderedQueryable<Product>> orderByExpression;
 
-        public Task<IEnumerable<ProductType>> GetProductTypesAsync()
-        {
-            IEnumerable<ProductType> productType = await _productRepository.GetAllAsync();
-            return _mapper.Map<List<ProductType>>(productType);
-        }*/
+            if (!string.IsNullOrEmpty(orderByCriteria))
+            {
+                switch (orderByCriteria.ToLower())
+                {
+                    case "priceasc":
+                        orderByExpression = query => query.OrderBy(p => p.Price);
+                        break;
+                    case "pricedesc":
+                        orderByExpression = query => query.OrderByDescending(p => p.Price);
+                        break;
+                    default:
+                        orderByExpression = query => query.OrderBy(p => p.Name);
+                        break;
+                }
+            }
+            else
+            {
+                // Default sorting by Name if no orderByCriteria is provided
+                orderByExpression = query => query.OrderBy(p => p.Name);
+            }
+
+            return orderByExpression;
+        }
     }
 }

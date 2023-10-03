@@ -45,18 +45,20 @@ namespace Car.BLLayer.Data.SeedData
                 var products = JsonSerializer.Deserialize<List<Product>>(productsData);
                 context.Products.AddRange(products);
             }
+
             /*if (!context.Orders.Any())
             {
                 var orderData = File.ReadAllText("../Car.BLLayer/Data/SeedData/orders.json");
                 var orders = JsonSerializer.Deserialize<List<Order>>(orderData);
                 context.Orders.AddRange(orders);
             }*/
-            if (!context.DeliveryMethods.Any())
-            {
-                var deliveryData = File.ReadAllText("../Car.BLLayer/Data/SeedData/orders.json");
-                var delivery = JsonSerializer.Deserialize<List<DeliveryMethod>>(deliveryData);
-                context.DeliveryMethods.AddRange(delivery);
-            }
+
+            /*          if (!context.DeliveryMethods.Any())
+                      {
+                          var deliveryData = File.ReadAllText("../Car.BLLayer/Data/SeedData/orders.json");
+                          var delivery = JsonSerializer.Deserialize<List<DeliveryMethod>>(deliveryData);
+                          context.DeliveryMethods.AddRange(delivery);
+                      }*/
 
             if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
         }

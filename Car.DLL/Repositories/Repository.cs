@@ -196,15 +196,18 @@ namespace Car.DLL.Repositories
             try
             {
                 IEnumerable<T> records = from x in _dbSet.Where<T>(predicate) select x;
+                if (records.Count() == 0)
+                {
+                    return false;
+                }
                 _dbSet.RemoveRange(records);
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new Exception(ex.Message);
             }
         }
-
         public virtual bool DeleteRange(IEnumerable<T> records)
         {
             try

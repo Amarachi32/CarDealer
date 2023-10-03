@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Car.DLL.Entities;
+using Car.DLL.Enum;
 
 namespace Car.BLLayer.DTO.ResponseDto
 {
@@ -15,6 +12,22 @@ namespace Car.BLLayer.DTO.ResponseDto
         public string? PictureUrl { get; set; }
         public string ProductType { get; set; }
         public string ProductBrand { get; set; }
+    }
+
+    public class OrderReturnDto
+    {
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string BuyerEmail { get; set; }
+        public DateTime OrderDate { get; set; } = DateTime.UtcNow;
+        public Address ShipToAddress { get; set; }
+        public DeliveryMethod DeliveryMethod { get; set; }
+        public IReadOnlyList<OrderItem> OrderItems { get; set; }
+        public decimal SubTotal { get; set; }
+        public OrderStatus OrderStatus { get; set; } = OrderStatus.Pending;
+        public string PaymentIntentId { get; set; }
+        public decimal ShippingPrice { get; set; }
+
+        public decimal Total { get; set; }
     }
 
     public class ResponseDto

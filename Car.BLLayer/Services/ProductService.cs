@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Car.BLLayer.DTO.RequestDto;
+using Car.BLLayer.DTO.RequestDtos;
 using Car.BLLayer.Interfaces;
 using Car.DLL.Entities;
 using Car.DLL.Interfaces;

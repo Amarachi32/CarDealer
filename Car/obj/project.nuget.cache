@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "v1wbmHqnFcRxcIkNvHmKBPK1rEXXcN5NyMZXNMuLfiMES68/AfyNFyjEbI+d35kI5rNUz8okZhdLogbUf5xQmg==",
+  "dgSpecHash": "G+1CfnRn1axYS1ha89YmQwR2ptMnycupw5U0WrONmH9oY02MA61wGJUfKHtNuMzV/x+AdD7qxz6GuZUDK2AznQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Amara\\source\\repos\\CarDealer\\Car\\Car.csproj",
   "expectedPackageFiles": [
@@ -47,7 +47,9 @@
     "C:\\Users\\Amara\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Amara\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\sonaranalyzer.csharp\\9.10.0.77988\\sonaranalyzer.csharp.9.10.0.77988.nupkg.sha512",
+    "C:\\Users\\Amara\\.nuget\\packages\\stackexchange.redis\\2.6.122\\stackexchange.redis.2.6.122.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
@@ -61,6 +63,7 @@
     "C:\\Users\\Amara\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.21.0\\system.identitymodel.tokens.jwt.6.21.0.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
+    "C:\\Users\\Amara\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

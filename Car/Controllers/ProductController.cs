@@ -1,5 +1,5 @@
 ﻿
-using Car.BLLayer.DTO.RequestDto;
+using Car.BLLayer.DTO.RequestDtos;
 using Car.BLLayer.DTO.ResponseDto;
 using Car.BLLayer.Interfaces;
 using Microsoft.AspNetCore.Authorization;

@@ -1,4 +1,6 @@
-﻿using Car.DLL.Models;
+﻿using Car.BLLayer.Interfaces;
+using Car.BLLayer.Services;
+using Car.DLL.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +19,20 @@ namespace Car.BLLayer.Extension
             services.AddDbContext<CarDbContext>(OptionsBuilder => {
                 OptionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
             });
+        }
+
+        public static void MemoryCache(this IServiceCollection services)
+        {
+            services.AddMemoryCache();
+        }
+
+        public static IServiceCollection ApplicationServices(this IServiceCollection services)
+        {
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IProductServices, ProductService>();
+            services.AddScoped<ICartService, CartService>();
+            return services;
+
         }
     }
 }

@@ -12,8 +12,6 @@ using System.Linq.Expressions;
 
 namespace Car.Controllers
 {
-    //[EnableCors("CorsPolicy")]
-    [EnableCors]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase

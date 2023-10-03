@@ -33,9 +33,9 @@ public class Program
         {
             opt.AddPolicy("CorsPolicy", builder =>
             {
-                builder.AllowAnyOrigin()
-                    .AllowAnyHeader()
-                    .AllowAnyMethod();
+               // builder.AllowAnyOrigin()
+                 //   .AllowAnyHeader()
+                builder.AllowAnyMethod().WithOrigins("https://localhost:4200");
             });
         });
 

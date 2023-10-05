@@ -28,7 +28,7 @@ namespace Car.Controllers
             var shoppingCart = await _cartService.GetShoppingCartAsync(userId);
             if (shoppingCart == null)
             {
-                shoppingCart = new ShoppingCart();
+                shoppingCart = new ShoppingCart(userId);
             }
 
             shoppingCart.Items.Add(item);
@@ -46,7 +46,7 @@ namespace Car.Controllers
             return Ok(shoppingCart);
         }
         [HttpPost("add item")]
-        public async Task<IActionResult> AddItemToCartAsync([FromBody] string itemId)
+        public async Task<IActionResult> AddItemToCartAsync([FromBody] int itemId)
         {
             var userId = User.Identity.Name;
             await _cartService.AddItemToCartAsync(userId, itemId);
@@ -54,7 +54,7 @@ namespace Car.Controllers
             return Ok();
         }
         [HttpDelete("remove item")]
-        public async Task<IActionResult> RemoveItemFromCartAsync([FromBody] string itemId)
+        public async Task<IActionResult> RemoveItemFromCartAsync([FromBody] int itemId)
         {
             var userId = User.Identity.Name;
             await _cartService.RemoveItemFromCartAsync(userId, itemId);

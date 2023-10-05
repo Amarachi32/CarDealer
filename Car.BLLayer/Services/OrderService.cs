@@ -27,7 +27,7 @@ namespace Car.BLLayer.Services
             _productRepository = _unitOfWork.GetRepository<Product>();
         }
 
-        public async Task<Order> CreateOrderAsync(string buyerEmail, string deliveryMethodId, string cartId, Address shipAddress)
+        public async Task<Order> CreateOrderAsync(string buyerEmail, string deliveryMethodId, int cartId, Address shipAddress)
         {
             //get Cart 
             var basket = await _cartRepository.GetByIdAsync(cartId);
@@ -55,7 +55,7 @@ namespace Car.BLLayer.Services
             return await _deliveryRepository.GetAllAsync();
         }
 
-        public async Task<Order> GetOrderByIdAsync(string Id, string buyerEmail)
+        public async Task<Order> GetOrderByIdAsync(int Id, string buyerEmail)
         {
             var order = await _orderRepository.GetSingleByAsync(
                 o => o.Id == Id && o.BuyerEmail == buyerEmail, // Added Id condition

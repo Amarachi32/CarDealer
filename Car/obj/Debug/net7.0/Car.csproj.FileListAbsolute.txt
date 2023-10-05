@@ -38,6 +38,8 @@ C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Microsoft.Win32.Syste
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Newtonsoft.Json.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\NLog.dll
+C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\PayStack.Net.dll
+C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Paystack.Net.SDK.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Pipelines.Sockets.Unofficial.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\Scrutor.dll
 C:\Users\Amara\source\repos\CarDealer\Car\bin\Debug\net7.0\StackExchange.Redis.dll

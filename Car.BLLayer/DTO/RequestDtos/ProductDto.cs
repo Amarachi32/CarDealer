@@ -16,4 +16,14 @@ namespace Car.BLLayer.DTO.RequestDtos
         public int ProductType { get; set; }
         public int ProductBrand { get; set; }
     }
+
+    public class BrandDto
+    {
+        public string Name { get; set; }
+    }
+
+    public class TypeDto
+    {
+        public string Name { get; set; }
+    }
 }

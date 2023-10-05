@@ -50,6 +50,8 @@ C:\Users\Amara\source\repos\CarDealer\CarDealer.Tests\bin\Debug\net7.0\Newtonsof
 C:\Users\Amara\source\repos\CarDealer\CarDealer.Tests\bin\Debug\net7.0\NLog.dll
 C:\Users\Amara\source\repos\CarDealer\CarDealer.Tests\bin\Debug\net7.0\NuGet.Frameworks.dll
 C:\Users\Amara\source\repos\CarDealer\CarDealer.Tests\bin\Debug\net7.0\nunit.framework.dll
+C:\Users\Amara\source\repos\CarDealer\CarDealer.Tests\bin\Debug\net7.0\PayStack.Net.dll
+C:\Users\Amara\source\repos\CarDealer\CarDealer.Tests\bin\Debug\net7.0\Paystack.Net.SDK.dll
 C:\Users\Amara\source\repos\CarDealer\CarDealer.Tests\bin\Debug\net7.0\Pipelines.Sockets.Unofficial.dll
 C:\Users\Amara\source\repos\CarDealer\CarDealer.Tests\bin\Debug\net7.0\StackExchange.Redis.dll
 C:\Users\Amara\source\repos\CarDealer\CarDealer.Tests\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll

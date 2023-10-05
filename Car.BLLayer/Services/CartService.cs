@@ -61,7 +61,7 @@ namespace Car.BLLayer.Services
                 cart = await _cartRepository.GetByIdAsync(userId);
                 if (cart == null)
                 {
-                    cart = new ShoppingCart();
+                    cart = new ShoppingCart(userId);
                 }
 
                 _memoryCache.Set(userId, cart);
@@ -70,7 +70,7 @@ namespace Car.BLLayer.Services
             return cart;
         }
 
-        public async Task AddItemToCartAsync(string userId, string itemId)
+        public async Task AddItemToCartAsync(string userId, int itemId)
         {
             var cart = await GetCartAsync(userId);
             cart.Items.Add(new ShoppingCartItem { Id = itemId });
@@ -80,7 +80,7 @@ namespace Car.BLLayer.Services
             await SyncCartAsync(userId);
         }
 
-        public async Task RemoveItemFromCartAsync(string userId, string itemId)
+        public async Task RemoveItemFromCartAsync(string userId, int itemId)
         {
             var cart = await GetCartAsync(userId);
            // cart.Items.Remove(cart.Items.FirstOrDefault(x => x.Id == itemId));

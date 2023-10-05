@@ -7,10 +7,17 @@ using System.Threading.Tasks;
 
 namespace Car.DLL.Entities
 {
-    public class ShoppingCart : BaseEntity
+    public class ShoppingCart //: BaseEntity
     {
+        public ShoppingCart(string? id)
+        {
+            Id = id;
+        }
 
-       // public string UserId { get; set; }
-        public List<ShoppingCartItem> Items { get; set; }
+        public string Id { get; set; }
+        public List<ShoppingCartItem> Items { get; set; } = new List<ShoppingCartItem>();
+        public int? DeliveryId { get; set; } 
+        public string ClientSecret {  get; set; }
+        public string PaymentIntentId {  get; set; }
     }
 }

@@ -14,6 +14,10 @@ namespace Car.Helpers
                 .ForMember(t => t.ProductType, o => o.MapFrom(s => s.ProductType.Name))
                 .ForMember(dest => dest.ImageFile, opt => opt.MapFrom(src => src.PictureUrl)).ReverseMap();
             //   .ForMember(t => t.PictureUrl, o => o.MapFrom<>);
+
+            CreateMap<Product, ProductResponseDto>()
+            .ForMember(d => d.ProductBrand, o => o.MapFrom(s => s.ProductBrand.Name))
+            .ForMember(t => t.ProductType, o => o.MapFrom(s => s.ProductType.Name));
             //below address is from identity
             //  CreateMap<identity.Address, AddressDto>().ReverseMap();
             CreateMap<CartDto, ShoppingCart>();

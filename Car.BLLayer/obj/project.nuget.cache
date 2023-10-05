@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "r4r3C7JqLmBdFS8bicur6qa4GPOaHC0buE2FfcXIERQzeMiz2CB5fjyVilW1y7nB06j6TkgaxjUIfMrYeDs2RQ==",
+  "dgSpecHash": "/1u5VgnTUZ9c770f1/wVP3yBcaa/YgeX6I36bMoTg3W55xnMBnbPQAPi2Nhk6J3Z6jEc0mBEtxtxGtaON3iQ3w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Amara\\source\\repos\\CarDealer\\Car.BLLayer\\Car.BLLayer.csproj",
   "expectedPackageFiles": [
@@ -79,6 +79,8 @@
     "C:\\Users\\Amara\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\nlog\\5.2.4\\nlog.5.2.4.nupkg.sha512",
+    "C:\\Users\\Amara\\.nuget\\packages\\paystack.net\\1.1.0\\paystack.net.1.1.0.nupkg.sha512",
+    "C:\\Users\\Amara\\.nuget\\packages\\paystack.net.sdk\\1.3.8.1\\paystack.net.sdk.1.3.8.1.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\pipelines.sockets.unofficial\\2.2.8\\pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\runtime.native.system\\4.0.0\\runtime.native.system.4.0.0.nupkg.sha512",
     "C:\\Users\\Amara\\.nuget\\packages\\sonaranalyzer.csharp\\9.10.0.77988\\sonaranalyzer.csharp.9.10.0.77988.nupkg.sha512",

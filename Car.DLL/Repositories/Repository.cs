@@ -310,10 +310,6 @@ namespace Car.DLL.Repositories
             {
 
                 IQueryable<T> query = ConstructQuery(predicate, orderBy, skip, take, include);
-                if (skip.HasValue && take.HasValue)
-                {
-                    query = query.Skip((skip.Value - 1) * take.Value).Take(take.Value);
-                }
                 return await query.ToListAsync();
             }
             catch (Exception ex)

@@ -8,7 +8,7 @@ namespace Car.BLLayer.DTO.RequestDtos
 {
     public class OrderDto
     {
-        public string OrderId { get; set; }
+        public int OrderId { get; set; }
         public string DeliveryMethodId { get; set;}
         public AddressDto ShipToAddress { get; set; }
     }

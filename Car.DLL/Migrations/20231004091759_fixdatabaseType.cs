@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Car.DLL.Migrations
 {
     /// <inheritdoc />
-    public partial class createNewDb : Migration
+    public partial class fixdatabaseType : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -55,7 +55,8 @@ namespace Car.DLL.Migrations
                 name: "DeliveryMethod",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DeliveryTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -202,7 +203,8 @@ namespace Car.DLL.Migrations
                 name: "Order",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     BuyerEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ShipToAddressFullName = table.Column<string>(name: "ShipToAddress_FullName", type: "nvarchar(max)", nullable: false),
@@ -210,7 +212,7 @@ namespace Car.DLL.Migrations
                     ShipToAddressCity = table.Column<string>(name: "ShipToAddress_City", type: "nvarchar(max)", nullable: false),
                     ShipToAddressState = table.Column<string>(name: "ShipToAddress_State", type: "nvarchar(max)", nullable: false),
                     ShipToAddressZipCode = table.Column<string>(name: "ShipToAddress_ZipCode", type: "nvarchar(max)", nullable: false),
-                    DeliveryMethodId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    DeliveryMethodId = table.Column<int>(type: "int", nullable: false),
                     SubTotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     OrderStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PaymentIntentId = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -222,14 +224,16 @@ namespace Car.DLL.Migrations
                         name: "FK_Order_DeliveryMethod_DeliveryMethodId",
                         column: x => x.DeliveryMethodId,
                         principalTable: "DeliveryMethod",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Products",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -258,13 +262,14 @@ namespace Car.DLL.Migrations
                 name: "OrderItem",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     ItemOrderedProductName = table.Column<string>(name: "ItemOrdered_ProductName", type: "nvarchar(max)", nullable: false),
                     ItemOrderedProductUrl = table.Column<string>(name: "ItemOrdered_ProductUrl", type: "nvarchar(max)", nullable: false),
-                    ItemOrderedId = table.Column<string>(name: "ItemOrdered_Id", type: "nvarchar(max)", nullable: true),
+                    ItemOrderedId = table.Column<int>(name: "ItemOrdered_Id", type: "int", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    OrderId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    OrderId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {

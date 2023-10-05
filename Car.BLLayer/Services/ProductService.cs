@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Car.BLLayer.DTO.RequestDtos;
+using Car.BLLayer.DTO.ResponseDto;
 using Car.BLLayer.Interfaces;
 using Car.DLL.Entities;
 using Car.DLL.Interfaces;
@@ -10,14 +11,18 @@ namespace Car.BLLayer.Services
     public class ProductService : IProductServices
     {
         private readonly IRepository<Product> _productRepository;
+        private readonly IRepository<ProductBrand> _brandRepository;
+        private readonly IRepository<ProductType> _typeRepository;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
         public ProductService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
-            _mapper = mapper;
+            _mapper = mapper; 
             _productRepository = _unitOfWork.GetRepository<Product>();
+            _brandRepository = _unitOfWork.GetRepository<ProductBrand>();
+            _typeRepository = _unitOfWork.GetRepository<ProductType>();
         }
 
         public async Task<ProductDto> CreateUpdateProduct(Product product)
@@ -43,7 +48,7 @@ namespace Car.BLLayer.Services
             throw new NotImplementedException();
         }
 
-        public async Task<bool> DeleteProduct(string productId)
+        public async Task<bool> DeleteProduct(int productId)
         {
             try
             {
@@ -62,7 +67,7 @@ namespace Car.BLLayer.Services
             }
         }
 
-        public async Task<ProductDto> GetProductById(string productId)
+        public async Task<ProductDto> GetProductById(int productId)
         {
             var product = await _productRepository.GetSingleByAsync(
              p => p.Id == productId,
@@ -72,7 +77,7 @@ namespace Car.BLLayer.Services
         }
 
         //public async Task<IEnumerable<ProductDto>> GetProducts([FromQuery] int? skip, [FromQuery] int? take, [FromQuery] int? brandId, [FromQuery] int? typeId, string orderByCriteria = null)
-        public async Task<Pagination<ProductDto>> GetProducts(ProductParams param)
+        public async Task<Pagination<ProductResponseDto>> GetProducts(ProductParams param)
         {
             var totalCount = await _productRepository.CountAsync(predicate: x =>
             (string.IsNullOrEmpty(param.Search) || x.Name.ToLower().Contains(param.Search.ToLower())) &&
@@ -86,12 +91,14 @@ namespace Car.BLLayer.Services
                 (!param.TypeId.HasValue || x.ProductTypeId == param.TypeId),
             orderBy: GetOrderByExpression(param.sort),
             //skip: param.PageIndex,
-            skip: (param.PageIndex - 1) * param.PageSize,
+            //skip: (param.PageIndex - 1) * param.PageSize,
+            skip: param.PageIndex >= 1 ? (param.PageIndex - 1) * param.PageSize : (int?)null, // Correctly calculate skip
+            //skip: param.PageIndex.HasValue ? (param.PageIndex.Value - 1) * param.PageSize : (int?)null, // Correctly calculate skip
             take: param.PageSize,
             include: q => q.Include(p => p.ProductBrand).Include(p => p.ProductType));
-            var productDtos = _mapper.Map<List<ProductDto>>(productList);
+            var productDtos = _mapper.Map<IEnumerable<ProductResponseDto>>(productList);
 
-            return new Pagination<ProductDto>(param.PageIndex, param.PageSize, totalCount, productDtos);
+            return new Pagination<ProductResponseDto>(param.PageIndex, param.PageSize, totalCount, productDtos);
 
         }
 
@@ -121,6 +128,18 @@ namespace Car.BLLayer.Services
             }
 
             return orderByExpression;
+        }
+        
+        public async Task<IEnumerable<ProductBrand>> GetProductBrandsAsync()
+        {
+            var brands = await _brandRepository.GetAllAsync();
+            return brands;
+        }
+
+        public async Task<IEnumerable<ProductType>> GetProductTypesAsync()
+        {
+            var types = await _typeRepository.GetAllAsync();
+            return types;
         }
     }
 }

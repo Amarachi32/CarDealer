@@ -8,6 +8,7 @@ namespace Car.DLL.Entities
 {
     public class BaseEntity
     {
-        public string Id { get; set; } = Guid.NewGuid().ToString();
+        //public string Id { get; set; } = Guid.NewGuid().ToString();
+        public int Id { get; set; } 
     }
 }

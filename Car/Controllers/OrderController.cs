@@ -5,9 +5,7 @@ using Car.BLLayer.Extension;
 using Car.BLLayer.Interfaces;
 using Car.DLL.Entities;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
 
 namespace Car.Controllers
 {
@@ -18,7 +16,7 @@ namespace Car.Controllers
         private readonly IOrderService _orderService;
         private readonly IMapper _mapper;
         protected ResponseDto _response;
-       
+
         public OrderController(IOrderService service, IMapper mapper)
         {
             _orderService = service;
@@ -53,7 +51,7 @@ namespace Car.Controllers
             return Ok(_mapper.Map<IEnumerable<OrderReturnDto>>(order));
         }
 
-        [HttpGet] 
+        [HttpGet]
         public async Task<ActionResult<OrderReturnDto>> GetOrderByUser()
         {
             var email = HttpContext.User.RetieveEmailFromPrincipal();
@@ -67,7 +65,7 @@ namespace Car.Controllers
 
         [HttpGet("delivery")]
         public async Task<ActionResult<IEnumerable<OrderReturnDto>>> GetDeliveryMethod()
-        { 
+        {
             var order = await _orderService.GetDeliveryMethodAsync();
             if (order != null)
             {

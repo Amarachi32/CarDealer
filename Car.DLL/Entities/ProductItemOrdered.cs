@@ -6,7 +6,7 @@
         {
         }
 
-        public ProductItemOrdered(string id, string productName, string productUrl)
+        public ProductItemOrdered(int id, string productName, string productUrl)
         {
             Id = id;
             ProductName = productName;

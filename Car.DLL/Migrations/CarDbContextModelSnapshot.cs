@@ -97,8 +97,11 @@ namespace Car.DLL.Migrations
 
             modelBuilder.Entity("Car.DLL.Entities.DeliveryMethod", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("DeliveryTime")
                         .IsRequired()
@@ -122,15 +125,18 @@ namespace Car.DLL.Migrations
 
             modelBuilder.Entity("Car.DLL.Entities.Order", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("BuyerEmail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DeliveryMethodId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("DeliveryMethodId")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
@@ -155,11 +161,14 @@ namespace Car.DLL.Migrations
 
             modelBuilder.Entity("Car.DLL.Entities.OrderItem", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Property<string>("OrderId")
-                        .HasColumnType("nvarchar(450)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("OrderId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -176,8 +185,11 @@ namespace Car.DLL.Migrations
 
             modelBuilder.Entity("Car.DLL.Entities.Product", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -382,12 +394,14 @@ namespace Car.DLL.Migrations
                 {
                     b.HasOne("Car.DLL.Entities.DeliveryMethod", "DeliveryMethod")
                         .WithMany()
-                        .HasForeignKey("DeliveryMethodId");
+                        .HasForeignKey("DeliveryMethodId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.OwnsOne("Car.DLL.Entities.Address", "ShipToAddress", b1 =>
                         {
-                            b1.Property<string>("OrderId")
-                                .HasColumnType("nvarchar(450)");
+                            b1.Property<int>("OrderId")
+                                .HasColumnType("int");
 
                             b1.Property<string>("City")
                                 .IsRequired()
@@ -432,11 +446,11 @@ namespace Car.DLL.Migrations
 
                     b.OwnsOne("Car.DLL.Entities.ProductItemOrdered", "ItemOrdered", b1 =>
                         {
-                            b1.Property<string>("OrderItemId")
-                                .HasColumnType("nvarchar(450)");
+                            b1.Property<int>("OrderItemId")
+                                .HasColumnType("int");
 
-                            b1.Property<string>("Id")
-                                .HasColumnType("nvarchar(max)");
+                            b1.Property<int>("Id")
+                                .HasColumnType("int");
 
                             b1.Property<string>("ProductName")
                                 .IsRequired()

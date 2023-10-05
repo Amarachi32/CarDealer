@@ -5,10 +5,9 @@ using Car.BLLayer.DTO.ResponseDto;
 using Car.BLLayer.Interfaces;
 using Car.DLL.Entities;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Car.Controllers
 {
@@ -29,11 +28,11 @@ namespace Car.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<Pagination<ProductDto>>> Get(ProductParams param)
+        public async Task<ActionResult<Pagination<ProductResponseDto>>> Get([FromQuery] ProductParams param)
         {
             try
             {
-                Pagination<ProductDto> productDtos = await _productService.GetProducts(param);
+                Pagination<ProductResponseDto> productDtos = await _productService.GetProducts(param);
                 return productDtos;
             }
             catch (Exception ex)
@@ -46,7 +45,7 @@ namespace Car.Controllers
         [Route("{id}")]
         [ProducesResponseType(typeof(ProductDto), 200)]
         [ProducesResponseType(typeof(ApiResponseType), StatusCodes.Status404NotFound)]
-        public async Task<object> Get(string id)
+        public async Task<object> Get(int id)
         {
             try
             {
@@ -118,7 +117,7 @@ namespace Car.Controllers
         [HttpDelete]
         [Authorize(Roles = "Admin")]
         [Route("{id}")]
-        public async Task<object> Delete(string id)
+        public async Task<object> Delete(int id)
         {
             try
             {
@@ -134,28 +133,28 @@ namespace Car.Controllers
             return _response;
         }
 
-        /*        [HttpPost("add-photo")]
-                public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file)
-                {
-                    var user = HttpContext.User.RetieveEmailFromPrincipal();
-                    var result = await  _photoServices.AddPhotoAsync(file);
-                    if (result.Error != null)return BadRequest(result.Error.Message);
-
-                    var photo = new Product
-                    {
-                        PictureUrl = result.SecureUri.AbsoluteUri,
-                        Id = result.PublicId
-                    };
-                    //return _mapper.Map<PhotoDto>(photo);
-                    return photo;
-                }*/
-
-
-
-     /*   private Expression<Func<Product, bool>> CreateTypeFilter(string TypeId)
+        [HttpGet("brand")]
+        public async Task<ActionResult<IEnumerable<BrandDto>>> GetProductBrand()
         {
-            var typeId = int.Parse(TypeId);
-            return p => p.ProductTypeId == typeId;
-        }*/
+            var productBrands = await _productService.GetProductBrandsAsync();
+            var brandDtos = productBrands.Select(brand => new BrandDto
+            {
+                Name = brand.Name
+            }).ToList();
+
+            return Ok(brandDtos);
+        }
+
+        [HttpGet("type")]
+        public async Task<ActionResult<IEnumerable<TypeDto>>> GetProductType()
+        {
+            var productTypes = await _productService.GetProductTypesAsync();
+            var typeDtos = productTypes.Select(type => new TypeDto
+            {
+                Name = type.Name
+            }).ToList();
+
+            return Ok(typeDtos);
+        }
     }
 }

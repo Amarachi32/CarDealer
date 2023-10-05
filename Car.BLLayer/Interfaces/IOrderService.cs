@@ -9,9 +9,9 @@ namespace Car.BLLayer.Interfaces
 {
     public interface IOrderService
     {
-        Task<Order> CreateOrderAsync(string buyerEmail, string deliveryMethodId, string cartId, Address shipAddress);
+        Task<Order> CreateOrderAsync(string buyerEmail, string deliveryMethodId, int cartId, Address shipAddress);
         Task<IReadOnlyList<Order>> GetOrdersForUserAsync(string buyerEmail);
-        Task<Order> GetOrderByIdAsync(string Id, string buyerEmail);
+        Task<Order> GetOrderByIdAsync(int Id, string buyerEmail);
         Task<IEnumerable<DeliveryMethod>> GetDeliveryMethodAsync();
     }
 }

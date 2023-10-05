@@ -42,6 +42,7 @@ namespace Car.BLLayer.Extension
             services.AddScoped<IProductServices, ProductService>();
             services.AddScoped<IPhotoServices, PhotoService>();
             services.AddScoped<ICartService, CartService>();
+          //  services.AddScoped<IPaymentService, PaymentService>();
             //return services;
 
         }

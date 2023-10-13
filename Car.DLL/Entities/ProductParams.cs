@@ -10,7 +10,7 @@ namespace Car.DLL.Entities
     {
         private const int MaxPageSize = 50;
         public int PageIndex { get; set; } = 1;
-        private int _pageSize { get; set; } = 1;
+        private int _pageSize { get; set; } = 10;
         private int PageCount { get; set; }
         public int PageSize {
             get => _pageSize;

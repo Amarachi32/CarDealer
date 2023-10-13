@@ -6,6 +6,6 @@ import { Product } from 'src/app/shared/models/product';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent {
-  @Input() product: Product = { name: '', description: '', price: 0, imageFile: null, productType: '', productBrand: '' };
+  @Input() product: Product = { id: 0, name: '', description: '', price: 0, pictureUrl: null, productType: '', productBrand: '' };
 
 }
